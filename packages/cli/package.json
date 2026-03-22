@@ -1,0 +1,35 @@
+{
+  "name": "@nextpaneljs/cli",
+  "version": "0.1.0",
+  "description": "Admin panel framework for Next.js",
+  "bin": {
+    "nextpanel": "./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nextpanel/nextpanel.git",
+    "directory": "packages/cli"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "commander": "^13",
+    "handlebars": "^4",
+    "pluralize": "^8",
+    "chalk": "^4"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/pluralize": "^0.0.33",
+    "typescript": "^5"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ]
+}

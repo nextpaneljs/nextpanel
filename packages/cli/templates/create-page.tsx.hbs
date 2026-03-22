@@ -1,0 +1,10 @@
+import { ResourceCreatePage } from "@nextpaneljs/core/pages";
+import { {{pascalCase name}}Resource } from "@/resources/{{lowercase name}}.resource";
+import { createRecord, updateRecord, getRelationOptions } from "@/nextpanel/actions";
+
+const resource = {{pascalCase name}}Resource;
+const actions = { createRecord, updateRecord, getRelationOptions };
+
+export default function {{pascalCase (pluralize name)}}CreatePage() {
+  return <ResourceCreatePage resource={resource} actions={actions} />;
+}

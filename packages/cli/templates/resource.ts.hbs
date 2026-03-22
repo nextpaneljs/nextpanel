@@ -1,0 +1,61 @@
+import { defineResource } from "@nextpaneljs/core";
+
+export const {{pascalCase name}}Resource = defineResource({
+  model: "{{camelCase name}}",
+  slug: "{{lowercase (pluralize name)}}",
+  label: "{{pascalCase name}}",
+  pluralLabel: "{{pascalCase (pluralize name)}}",
+  icon: "{{icon}}",
+  navigation: {
+    group: "{{group}}",
+    sort: {{sort}},
+  },
+{{#if include}}
+
+  include: {
+{{#each include}}
+    {{@key}}: { select: { {{#each this.select}}{{@key}}: true, {{/each}} } },
+{{/each}}
+  },
+{{/if}}
+
+  table: {
+    columns: [
+{{#each columns}}
+      {
+        key: "{{this.key}}",
+        label: "{{this.label}}",
+        type: "{{this.type}}",
+        sortable: {{this.sortable}},
+        searchable: {{this.searchable}},
+      },
+{{/each}}
+    ],
+    filters: [],
+    actions: [
+      { key: "delete", label: "Delete", variant: "destructive", bulk: true },
+    ],
+    defaultSort: { key: "{{defaultSortKey}}", direction: "desc" },
+    perPage: 25,
+  },
+
+  form: {
+    fields: [
+{{#each formFields}}
+      {
+        key: "{{this.key}}",
+        label: "{{this.label}}",
+        type: "{{this.type}}",
+        required: {{this.required}},
+{{#if this.relation}}
+        relation: {
+          model: "{{this.relation.model}}",
+          displayField: "{{this.relation.displayField}}",
+          valueField: "{{this.relation.valueField}}",
+        },
+{{/if}}
+      },
+{{/each}}
+    ],
+  },
+});
