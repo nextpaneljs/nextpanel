@@ -33,10 +33,10 @@ jobs:
       - name: Publish @nextpaneljs/core
         run: cd packages/core && npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.PKG_TOKEN }}
 
       # Publish CLI
       - name: Publish @nextpaneljs/cli
         run: cd packages/cli && npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.PKG_TOKEN }}
